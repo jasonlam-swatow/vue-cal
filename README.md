@@ -16,6 +16,5 @@ A calendar app built with Vue.
 
 ## Todos
 
-[ ] - Preserving events in `localStorage`.
-
-[ ] - SPA routing via [vue-router](https://github.com/vuejs/vue-router).
+- [ ] Preserving events in `localStorage`.
+- [ ] SPA routing via [vue-router](https://github.com/vuejs/vue-router).
