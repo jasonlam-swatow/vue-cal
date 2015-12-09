@@ -1,61 +1,23 @@
-var Vue = require('vue');
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import { configRouter } from './route-config'
+require('es6-promise').polyfill()
 
-Vue.use(require('vue-resource'));
+// install router
+Vue.use(VueRouter)
 
-new Vue({
-  el: '#events',
+// create router
+const router = new VueRouter({
+  history: false,
+  saveScrollPosition: true
+})
 
-  data: {
-    event: { title: '', detail: '', date: '' },
-    events: []
-  },
+// configure router
+configRouter(router)
 
-  ready: function () {
-    this.fetchEvents();
-  },
+// boostrap the app
+const App = Vue.extend(require('./app.vue'))
+router.start(App, '#app')
 
-  methods: {
-
-    fetchEvents: function () {
-      var events = [];
-      // this.$set('events', events);
-      this.$http.get('/api/events')
-        .success(function (events) {
-          this.$set('events', events);
-          console.log(events);
-        })
-        .error(function (err) {
-          console.log(err);
-        });
-    },
-
-    addEvent: function () {
-      if (this.event.title.trim()) {
-        // this.events.push(this.event);
-        // this.event = { title: '', detail: '', date: '' };
-        this.$http.post('/api/events', this.event)
-          .success(function (res) {
-            this.events.push(this.event);
-            console.log('Event added!');
-          })
-          .error(function (err) {
-            console.log(err);
-          });
-      }
-    },
-
-    deleteEvent: function (index) {
-      if (confirm('確定要移除此項事件？')) {
-        // this.events.splice(index, 1);
-        this.$http.delete('api/events/' + event.id)
-          .success(function (res) {
-            console.log(res);
-            this.events.splice(index, 1);
-          })
-          .error(function (err) {
-            console.log(err);
-          });
-      }
-    }
-  }
-});
+// just for debugging
+window.router = router

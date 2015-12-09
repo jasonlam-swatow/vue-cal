@@ -8,6 +8,10 @@ A calendar app built with Vue.
 * Uses [vue-resource](https://github.com/vuejs/vue-resource) to send RESTful HTTP requests towards [Express](http://expressjs.com/) server, simulating CRUD operations on calendar events.
 * Uses [Webpack](https://webpack.github.io/) to bundle Vue files and JavaScript.
 
+**UPDATED:**
+
+* Uses [vue-router](https://github.com/vuejs/vue-router) to make it a SPA.
+
 ## Usage
 
 1. Run `npm install` for dependencies.
@@ -17,4 +21,5 @@ A calendar app built with Vue.
 ## Todos
 
 - [ ] Preserving events in `localStorage`.
-- [ ] SPA routing via [vue-router](https://github.com/vuejs/vue-router).
+- [x] SPA routing via [vue-router](https://github.com/vuejs/vue-router).
+- [ ] Routing to each event's editing page and detail page via vue-router.

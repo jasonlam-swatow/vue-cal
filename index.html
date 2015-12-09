@@ -14,63 +14,11 @@
   .btn-danger {
     margin-top: 8px;
   }
-  .view {
-    transition: all .5 ease;
-  }
-  .cal-enter,
-  .cal-leave {
-    opacity: 0;
-    transform: translate3d(10px, 0, 0);
-  }
   </style>
 </head>
 <body>
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <a class="navbar-brand"><i class="glyphicon glyphicon-bullhorn"></i> Vue 日曆</a>
-    </div>
-  </nav>
-
-  <div class="container" id="events">
-
-    <div class="jumbotron">
-      <h2>Vue Cal，助你善度光陰。</h2>
-      <p>一個使用了 <a href="http://vuejs.org/">Vue</a>、<a href="https://webpack.github.io/">Webpack</a> 與 Express 的日曆應用。</p>
-    </div>
-
-    <div class="row">
-
-      <div class="col-sm-7">
-    <div class="panel panel-default">
-      <div class="panel-heading">
-        <h3>新添事件</h3>
-      </div>
-      <div class="panel-body">
-        <div>
-          <input class="form-control" placeholder="事件名稱" v-model="event.title">
-          <textarea class="form-control" placeholder="事件細節" v-model="event.detail"></textarea>
-          <input type="date" class="form-control" placeholder="事件排期" v-model="event.date">
-          <button class="btn btn-primary btn-block" v-on:click="addEvent">發佈</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="col-sm-5">
-    <div class="list-group">
-      <a href="#" class="list-group-item" v-for="event in events">
-        <h4 class="list-group-item-heading"><i class="glyphicon glyphicon-bullhorn"></i> {{ event.title }}</h4>
-        <h5><i class="glyphicon glyphicon-calendar" v-if="event.date"></i> {{ event.date }}</h5>
-        <p class="list-group-item-text" v-if="event.detail">{{ event.detail }}</p>
-        <button class="btn btn-xs btn-danger" v-on:click="deleteEvent($index)">移除事件</button>
-      </a>
-    </div>
-  </div>
-
-    </div>
-
-  </div>
+  <div id="app"></div>
 
 </body>
 <!-- <script src="node_modules/vue/dist/vue.min.js"></script> -->
